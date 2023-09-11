@@ -1,9 +1,9 @@
 /****************************************************************/
-/* 		Author   	 : Mark Ehab                    */
-/* 		Date     	 : Sep 7, 2023               	*/
-/*      	SWC              : NVIC  	                */
-/*              Description	 : NVIC Private                 */
-/* 	   	Version          : V1.0                         */
+/* 					Author   	 : Mark Ehab                    */
+/* 					Date     	 : Sep 7, 2023               	*/
+/*      			SWC          : NVIC  		                */
+/*             	    Description	 : NVIC Private                 */
+/* 	   	            Version      : V1.0                         */
 /****************************************************************/
 
 /*----------------------------------------------------------------------------------------------------------*/
@@ -14,7 +14,7 @@
 /*                      | . ` | \ \/ /   | || |      |  ___/ '__| \ \ / / _` | __/ _ \                      */
 /*                      | |\  |  \  /   _| || |____  | |   | |  | |\ V / (_| | ||  __/                      */
 /*                      |_| \_|   \/   |_____\_____| |_|   |_|  |_| \_/ \__,_|\__\___|                      */
-/*								                                            */
+/*								                                         								    */
 /*                                                                                                          */
 /*----------------------------------------------------------------------------------------------------------*/
 
@@ -23,12 +23,12 @@
 
 /*-----------------------------------------------------------------------------------*/
 /*                                                                                   */
-/*                             NVIC REGISTERS DEFINITION		             */
+/*                             NVIC REGISTERS DEFINITION		          		     */
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
 typedef struct NVIC_Private
 {
-        volatile uint32_t NVIC_ISER[3]; 	/* Interrupt set-enable registers */
+        volatile uint32_t NVIC_ISER[3]; 		/* Interrupt set-enable registers */
         volatile uint32_t RESERVED0[29];        /* Reserved bits */
         volatile uint32_t NVIC_ICER[3];         /* Interrupt clear-enable registers */
         volatile uint32_t RESERVED1[63];        /* Reserved bits */
@@ -48,7 +48,7 @@ typedef struct NVIC_Private
 
 /*-----------------------------------------------------------------------------------*/
 /*                                                                                   */
-/*                            CONFIGURATION OPTIONS VALUES		             */
+/*                            CONFIGURATION OPTIONS VALUES		       		         */
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
 
