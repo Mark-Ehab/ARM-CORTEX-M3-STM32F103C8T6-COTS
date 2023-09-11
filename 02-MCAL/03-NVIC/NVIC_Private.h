@@ -26,7 +26,7 @@
 /*                             NVIC REGISTERS DEFINITION		          		     */
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
-typedef struct NVIC_Private
+typedef struct 
 {
         volatile uint32_t NVIC_ISER[3]; 		/* Interrupt set-enable registers */
         volatile uint32_t RESERVED0[29];        /* Reserved bits */
