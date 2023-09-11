@@ -26,6 +26,7 @@
 #include "STD_TYPES.h"
 #include "STD_ERRORS.h"
 #include "BIT_MATH.h"
+
 #include "NVIC_Private.h"
 #include "NVIC_Config.h"
 #include "NVIC_Interface.h"
@@ -62,13 +63,13 @@ ERROR_STATUS_t NVIC_EnableVectorInterrupt(uint8_t Copy_VectorId)
 			if(Copy_VectorId < 32U)
 			{
 				/* Enable Interrupt associated with passed vector id */
-				NVIC->NVIC_ISER[0] = (1<<Copy_VectorId);
+				NVIC->ISER[0] = (1<<Copy_VectorId);
 			}
 			else if(Copy_VectorId < 60U)
 			{
 				/* Enable Interrupt associated with passed vector id */
 				Copy_VectorId -= 32U;
-				NVIC->NVIC_ISER[1] = (1<<Copy_VectorId);
+				NVIC->ISER[1] = (1<<Copy_VectorId);
 			}
 		}
 		else
@@ -105,13 +106,13 @@ ERROR_STATUS_t NVIC_DisableVectorInterrupt(uint8_t Copy_VectorId)
 			if(Copy_VectorId < 32U)
 			{
 				/* Disable Interrupt associated with passed vector id */
-				NVIC->NVIC_ICER[0] = (1<<Copy_VectorId);
+				NVIC->ICER[0] = (1<<Copy_VectorId);
 			}
 			else if(Copy_VectorId < 60U)
 			{
 				/* Disable Interrupt associated with passed vector id */
 				Copy_VectorId -= 32U;
-				NVIC->NVIC_ICER[1] = (1<<Copy_VectorId);
+				NVIC->ICER[1] = (1<<Copy_VectorId);
 			}
 		}
 		else
@@ -149,13 +150,13 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPendingFlag(uint8_t Copy_VectorId)
 			if(Copy_VectorId < 32U)
 			{
 				/* Set pending flag for interrupt associated with passed vector id */
-				NVIC->NVIC_ISPR[0] = (1<<Copy_VectorId);
+				NVIC->ISPR[0] = (1<<Copy_VectorId);
 			}
 			else if(Copy_VectorId < 60U)
 			{
 				/* Set pending flag for interrupt associated with passed vector id */
 				Copy_VectorId -= 32U;
-				NVIC->NVIC_ISPR[1] = (1<<Copy_VectorId);
+				NVIC->ISPR[1] = (1<<Copy_VectorId);
 			}
 		}
 		else
@@ -193,13 +194,13 @@ ERROR_STATUS_t NVIC_ClearVectorInterruptPendingFlag(uint8_t Copy_VectorId)
 			if(Copy_VectorId < 32U)
 			{
 				/* Clear pending flag for interrupt associated with passed vector id */
-				NVIC->NVIC_ICPR[0] = (1<<Copy_VectorId);
+				NVIC->ICPR[0] = (1<<Copy_VectorId);
 			}
 			else if(Copy_VectorId < 60U)
 			{
 				/* Clear pending flag for interrupt associated with passed vector id */
 				Copy_VectorId -= 32U;
-				NVIC->NVIC_ICPR[1] = (1<<Copy_VectorId);
+				NVIC->ICPR[1] = (1<<Copy_VectorId);
 			}
 		}
 		else
@@ -246,13 +247,13 @@ ERROR_STATUS_t NVIC_GetVectorInterruptActiveFlag(uint8_t Copy_VectorId , uint8_t
 			if(Copy_VectorId < 32U)
 			{
 				/* Read active bit of interrupt associated with passed vector id */
-				*Copy_pVectorActiveFlagStatus = GET_BIT(NVIC->NVIC_IABR[0],Copy_VectorId);
+				*Copy_pVectorActiveFlagStatus = GET_BIT(NVIC->IABR[0],Copy_VectorId);
 			}
 			else if(Copy_VectorId < 60U)
 			{
 				/* Read active bit of interrupt associated with passed vector id */
 				Copy_VectorId -= 32U;
-				*Copy_pVectorActiveFlagStatus = GET_BIT(NVIC->NVIC_IABR[0],Copy_VectorId);
+				*Copy_pVectorActiveFlagStatus = GET_BIT(NVIC->IABR[0],Copy_VectorId);
 			}
 		}
 		else
@@ -303,7 +304,7 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPriority(uint8_t Copy_VectorId , uint8_t C
 			Local_Priority = (uint8_t)(Copy_VectorGroupPriority << 4);
 
 			/* Set priority for passed vector interrupt Id */
-			NVIC->NVIC_IPR[Copy_VectorId] = Local_Priority;
+			NVIC->IPR[Copy_VectorId] = Local_Priority;
 
 		#elif NVIC_PRIORITY_GROUPING == NVIC_G8S2
 
@@ -312,7 +313,7 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPriority(uint8_t Copy_VectorId , uint8_t C
 			Local_Priority = (uint8_t)(Local_Priority << 4);
 
 			/* Set priority for passed vector interrupt Id */
-			NVIC->NVIC_IPR[Copy_VectorId] = Local_Priority;
+			NVIC->IPR[Copy_VectorId] = Local_Priority;
 
 		#elif NVIC_PRIORITY_GROUPING == NVIC_G4S4
 
@@ -321,7 +322,7 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPriority(uint8_t Copy_VectorId , uint8_t C
 			Local_Priority = (uint8_t)(Local_Priority << 4);
 
 			/* Set priority for passed vector interrupt Id */
-			NVIC->NVIC_IPR[Copy_VectorId] = Local_Priority;
+			NVIC->IPR[Copy_VectorId] = Local_Priority;
 
 		#elif NVIC_PRIORITY_GROUPING == NVIC_G2S8
 
@@ -330,7 +331,7 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPriority(uint8_t Copy_VectorId , uint8_t C
 			Local_Priority = (uint8_t)(Local_Priority << 4);
 
 			/* Set priority for passed vector interrupt Id */
-			NVIC->NVIC_IPR[Copy_VectorId] = Local_Priority;
+			NVIC->IPR[Copy_VectorId] = Local_Priority;
 
 		#elif NVIC_PRIORITY_GROUPING == NVIC_G0S16
 
@@ -338,7 +339,7 @@ ERROR_STATUS_t NVIC_SetVectorInterruptPriority(uint8_t Copy_VectorId , uint8_t C
 			Local_Priority = (uint8_t)(Copy_VectorSubPriority << 4);
 
 			/* Set priority for passed vector interrupt Id */
-			NVIC->NVIC_IPR[Copy_VectorId] = Local_Priority;
+			NVIC->IPR[Copy_VectorId] = Local_Priority;
 
 		#else
 
