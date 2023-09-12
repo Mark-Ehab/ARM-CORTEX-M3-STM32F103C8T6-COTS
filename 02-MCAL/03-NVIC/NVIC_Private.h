@@ -28,19 +28,19 @@
 /*-----------------------------------------------------------------------------------*/
 typedef struct 
 {
-        volatile uint32_t ISER[3]; 		/* Interrupt set-enable registers */
+        volatile uint32_t ISER[3]; 				/* Interrupt set-enable registers */
         volatile uint32_t RESERVED0[29];        /* Reserved bits */
-        volatile uint32_t ICER[3];         /* Interrupt clear-enable registers */
+        volatile uint32_t ICER[3];         		/* Interrupt clear-enable registers */
         volatile uint32_t RESERVED1[63];        /* Reserved bits */
-        volatile uint32_t ISPR[3];         /* Interrupt set-pending registers */
+        volatile uint32_t ISPR[3];         		/* Interrupt set-pending registers */
         volatile uint32_t RESERVED2[29];        /* Reserved bits */
-        volatile uint32_t ICPR[3];         /* Interrupt clear-pending registers */
+        volatile uint32_t ICPR[3];         		/* Interrupt clear-pending registers */
         volatile uint32_t RESERVED3[29];        /* Reserved bits */
-        volatile uint32_t IABR[3];         /* Interrupt active bit registers */
+        volatile uint32_t IABR[3];         		/* Interrupt active bit registers */
         volatile uint32_t RESERVED4[61];       	/* Reserved bits */
-        volatile uint8_t  IPR[80];         /* Interrupt priority bytes */
+        volatile uint8_t  IPR[80];         		/* Interrupt priority bytes */
         volatile uint32_t RESERVED5[695];       /* Reserved bits */
-        volatile uint32_t STIR;            /* Software trigger interrupt register */
+        volatile uint32_t STIR;            		/* Software trigger interrupt register */
 }NVIC_t;
 
 #define NVIC  ((volatile NVIC_t*)0xE000E100)
