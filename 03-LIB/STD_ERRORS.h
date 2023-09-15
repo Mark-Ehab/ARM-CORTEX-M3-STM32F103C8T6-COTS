@@ -27,8 +27,8 @@
 /*-----------------------------------------------------------------------------------*/
  typedef enum
  {
-	RT_OK  	    = 0,
-	RT_NOK 	    = 1,
+	RT_OK  	        = 0,
+	RT_NOK 	        = 1,
 	NULL_POINTER	= 2,
 	BUSY_FUNC		= 3
  }ERROR_STATUS_t;

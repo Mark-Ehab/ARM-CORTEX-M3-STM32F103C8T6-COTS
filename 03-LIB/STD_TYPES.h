@@ -36,6 +36,6 @@ typedef double 					float64_t;
 typedef long double 			float128_t;
 
 /* Define NULL as 0 */
-#define NULL  			0U
+#define NULL  					0U
 
 #endif /* LIB_STD_TYPES_H_ */

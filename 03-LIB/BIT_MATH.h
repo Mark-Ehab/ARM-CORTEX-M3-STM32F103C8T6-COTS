@@ -30,4 +30,14 @@
 #define GET_BIT(Copy_Reg,Copy_Pin)	        ((Copy_Reg >> Copy_Pin) & (0x01))
 #define TOGGLE_BIT(Copy_Reg,Copy_Pin)		(Copy_Reg ^= (1 << Copy_Pin))
 
+/*-----------------------------------------------------------------------------------------------------------------*/
+/*                                                                                   							   */
+/*	Define a function-like macro called CONC to help us in concatenation of registers bits from config file 	   */
+/*                                                                                  							   */
+/*-----------------------------------------------------------------------------------------------------------------*/
+#define CONC(b7,b6,b5,b4,b3,b2,b1,b0)        							    CONC_HELP(b7,b6,b5,b4,b3,b2,b1,b0)
+#define CONC_HELP(b7,b6,b5,b4,b3,b2,b1,b0)   							    0b##b7##b6##b5##b4##b3##b2##b1##b0
+#define CONC2(b15,b14,b13,b12,b11,b10,b9,b8,b7,b6,b5,b4,b3,b2,b1,b0)        CONC2_HELP(b15,b14,b13,b12,b11,b10,b9,b8,b7,b6,b5,b4,b3,b2,b1,b0)
+#define CONC2_HELP(b15,b14,b13,b12,b11,b10,b9,b8,b7,b6,b5,b4,b3,b2,b1,b0)   0b##b15##b14##b13##b12##b11##b10##b9##b8##b7##b6##b5##b4##b3##b2##b1##b0
+
 #endif /* LIB_BIT_MATH_H_ */
