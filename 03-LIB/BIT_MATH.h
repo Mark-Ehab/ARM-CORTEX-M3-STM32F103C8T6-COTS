@@ -26,7 +26,7 @@
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
 #define SET_BIT(Copy_Reg,Copy_Pin) 			(Copy_Reg |= (1 << Copy_Pin))
-#define CLR_BIT(Copy_Reg,Copy_Pin) 			(Copy_Reg &= (~(1 << Copy_Pin)))
+#define CLEAR_BIT(Copy_Reg,Copy_Pin) 		(Copy_Reg &= (~(1 << Copy_Pin)))
 #define GET_BIT(Copy_Reg,Copy_Pin)	        ((Copy_Reg >> Copy_Pin) & (0x01))
 #define TOGGLE_BIT(Copy_Reg,Copy_Pin)		(Copy_Reg ^= (1 << Copy_Pin))
 
