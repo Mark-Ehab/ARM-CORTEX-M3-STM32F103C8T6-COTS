@@ -192,6 +192,7 @@ ERROR_STATUS_t FPEC_FlashPageErase(uint8_t Copy_PageNumber);
 /*				   Brief: Number of bank start page in flash for the bank to be   */
 /* 				          erased. 										  		  */
 /*				   Range:(FPEC_PAGE_0 --> FPEC_PAGE_127)						  */
+/*                 -------------------------------------------------------------- */
 /*				   uint32_t Copy_BankSize								    	  */
 /*				   Brief: Size of the bank to be erased in flash                  */
 /*				   Range: Limited to flash size.                                  */
@@ -214,9 +215,11 @@ ERROR_STATUS_t FPEC_EraseBankArea(uint8_t Copy_PageNumber , uint32_t Copy_BankSi
 /*				   Brief: Data Hex Record Address								  */
 /*				   Range: Limited to flash size	(FPEC_FLASH_FIRST_ADDRESS -->	  */
 /* 						  FPEC_FLASH_LASR_ADDRESS)								  */
+/*                 -------------------------------------------------------------- */
 /* 				   uint16_t* Copy_pData                                           */
 /*				   Brief: Array of halfwords (Data Hex Record)					  */
 /*				   Range: None								   					  */
+/*                 -------------------------------------------------------------- */
 /* 				   uint8_t Copy_Length				                      	      */
 /*				   Brief: Halfword Count in Data Hex Record						  */
 /*				   Range: Any value can be stored within one byte 				  */
