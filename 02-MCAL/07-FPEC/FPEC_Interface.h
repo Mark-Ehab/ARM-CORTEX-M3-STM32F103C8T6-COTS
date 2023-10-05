@@ -161,6 +161,10 @@
 #define FPEC_FLASH_FIRST_ADDRESS			   0x08000000U
 #define FPEC_FLASH_LAST_ADDRESS				   0x0801FFFFU
 
+/* Data Option Byte Options */
+#define FPEC_DATA_OPTION_BYTE0				   0U
+#define FPEC_DATA_OPTION_BYTE1                 1U
+
 /*-----------------------------------------------------------------------------------*/
 /*                                                                                   */
 /*                           	  FUNCTIONS PROTOTYPES		          	             */
@@ -192,7 +196,7 @@ ERROR_STATUS_t FPEC_FlashPageErase(uint8_t Copy_PageNumber);
 /*				   Brief: Number of bank start page in flash for the bank to be   */
 /* 				          erased. 										  		  */
 /*				   Range:(FPEC_PAGE_0 --> FPEC_PAGE_127)						  */
-/*                 -------------------------------------------------------------- */
+/*				   -------------------------------------------------------------- */
 /*				   uint32_t Copy_BankSize								    	  */
 /*				   Brief: Size of the bank to be erased in flash                  */
 /*				   Range: Limited to flash size.                                  */
@@ -215,11 +219,11 @@ ERROR_STATUS_t FPEC_EraseBankArea(uint8_t Copy_PageNumber , uint32_t Copy_BankSi
 /*				   Brief: Data Hex Record Address								  */
 /*				   Range: Limited to flash size	(FPEC_FLASH_FIRST_ADDRESS -->	  */
 /* 						  FPEC_FLASH_LASR_ADDRESS)								  */
-/*                 -------------------------------------------------------------- */
+/*				   -------------------------------------------------------------- */
 /* 				   uint16_t* Copy_pData                                           */
 /*				   Brief: Array of halfwords (Data Hex Record)					  */
 /*				   Range: None								   					  */
-/*                 -------------------------------------------------------------- */
+/*				   -------------------------------------------------------------- */
 /* 				   uint8_t Copy_Length				                      	      */
 /*				   Brief: Halfword Count in Data Hex Record						  */
 /*				   Range: Any value can be stored within one byte 				  */
@@ -236,10 +240,14 @@ ERROR_STATUS_t FPEC_EraseBankArea(uint8_t Copy_PageNumber , uint32_t Copy_BankSi
 ERROR_STATUS_t FPEC_FlashWriteHexRecord(uint32_t Copy_Address, uint16_t* Copy_pData, uint8_t Copy_Length);
 
 /*--------------------------------------------------------------------------------*/
-/* @Function Name: WriteOptionByteData0          					              */
+/* @Function Name: WriteDataOptionByte          					              */
 /*--------------------------------------------------------------------------------*/
-/* @Param(in)	 : uint8_t Copy_Value				                   	          */
-/*				   Brief: Value to be stored in option byte Data 0 				  */
+/* @Param(in)	 : uint8_t Copy_DataOptionByte                                    */
+/* 				   Brief: Data Option Byte Id in which data will be stored        */
+/*                 Range: (FPEC_DATA_OPTION_BYTE0 - FPEC_DATA_OPTION_BYTE1)	      */
+/*                 -------------------------------------------------------------- */
+/* 				   uint8_t Copy_Value				                   	          */
+/*				   Brief: Value to be stored in Data option byte   				  */
 /*				   Range: Any value can be stored within one byte				  */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
@@ -248,14 +256,16 @@ ERROR_STATUS_t FPEC_FlashWriteHexRecord(uint32_t Copy_Address, uint16_t* Copy_pD
 /*--------------------------------------------------------------------------------*/
 /* @Return		 : ERROR_STATUS_t												  */
 /*--------------------------------------------------------------------------------*/
-/* @Description	 : This function stores a value in option byte Data0		 	  */
+/* @Description	 : This function stores a value in selected Data option byte	  */
 /*--------------------------------------------------------------------------------*/
-ERROR_STATUS_t FPEC_WriteOptionByteData0(uint8_t Copy_Value);
+ERROR_STATUS_t FPEC_WriteDataOptionByte(uint8_t Copy_DataOptionByte, uint8_t Copy_Value);
 
 /*--------------------------------------------------------------------------------*/
-/* @Function Name: EraseBankArea          					                      */
+/* @Function Name: GetDataOptionByte	          					              */
 /*--------------------------------------------------------------------------------*/
-/* @Param(in)	 : None									                          */
+/* @Param(in)	 : uint8_t Copy_DataOptionByte                                    */
+/* 				   Brief: Data Option Byte Id which its value will be read        */
+/*                 Range: (FPEC_DATA_OPTION_BYTE0 - FPEC_DATA_OPTION_BYTE1)	      */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -270,7 +280,21 @@ ERROR_STATUS_t FPEC_WriteOptionByteData0(uint8_t Copy_Value);
 /* @Description	 : This function gets (reads) the value stored in option byte 	  */
 /* 				   Data0	  													  */
 /*--------------------------------------------------------------------------------*/
-ERROR_STATUS_t FPEC_GetOptionByteData0Val(uint8_t* Copy_pValue);
+ERROR_STATUS_t FPEC_GetDataOptionByte(uint8_t Copy_DataOptionByte, uint8_t* Copy_pValue);
 
+/*--------------------------------------------------------------------------------*/
+/* @Function Name: FlashMassErase          					                      */
+/*--------------------------------------------------------------------------------*/
+/* @Param(in)	 : None                                                           */
+/*--------------------------------------------------------------------------------*/
+/* @Param(inout) : None                                                	          */
+/*--------------------------------------------------------------------------------*/
+/* @Param(out)	 : None                                            	              */
+/*--------------------------------------------------------------------------------*/
+/* @Return		 : ERROR_STATUS_t                                          		  */
+/*--------------------------------------------------------------------------------*/
+/* @Description	 : This function performs mass erase on flash memory  			  */
+/*--------------------------------------------------------------------------------*/
+void FPEC_FlashMassErase(void);
 
 #endif /* FPEC_MCAL_INTERFACE_H_ */

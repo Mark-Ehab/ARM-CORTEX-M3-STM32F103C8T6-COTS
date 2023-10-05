@@ -35,7 +35,7 @@ typedef struct
 	volatile uint32_t CR;               /* Flash control register */
 	volatile uint32_t AR;               /* Flash address register */
 	volatile uint32_t RESERVED;         /* Reserved Bits */
-	volatile uint32_t OBR;              /* Option byte register */
+	volatile uint32_t OBR;              /* Option byte register  */
 	volatile uint32_t WRPR;             /* Write protection register */
 }FPEC_t;
 
@@ -75,11 +75,11 @@ typedef struct
 #define FPEC_READ_PROTECTION_UNLOCK_KEY		0x00A5U
 
 /* Flash Option Bytes Location Addresses */
-#define FPEC_OPTION_BYTE_DATA0 				*(volatile uint16_t*)(0x1FFFF804)
-#define FPEC_OPTION_BYTE_DATA1 				*(volatile uint16_t*)(0x1FFFF806)
+#define FPEC_DATA_OPTION_BYTE0_LOCATION 	*(volatile uint16_t*)(0x1FFFF804)
+#define FPEC_DATA_OPTION_BYTE1_LOCATION 	*(volatile uint16_t*)(0x1FFFF806)
 
 /* Data Option Bytes Masks */
-#define FPEC_OPTION_BYTE_DATA0_MASK 		0x0003FC00U
-#define FPEC_OPTION_BYTE_DATA1_MASK 		0x03FC0000U
+#define FPEC_DATA_OPTION_BYTE0_MASK 		0x0003FC00U
+#define FPEC_DATA_OPTION_BYTE1_MASK 		0x03FC0000U
 
 #endif /* FPEC_MCAL_PRIVATE_H_ */
