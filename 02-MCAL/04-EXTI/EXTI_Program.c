@@ -501,6 +501,9 @@ void EXTI0_IRQHandler(void)
 		/* Invoke EXTI0 Callback Function */
 		Global_EXTI_Callback[0]();
 	}
+
+	/* Clear Pending Bit */
+	SET_BIT(EXTI->PR,EXTI_LINE_0);
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -516,6 +519,9 @@ void EXTI1_IRQHandler(void)
 		/* Invoke EXTI1 Callback Function */
 		Global_EXTI_Callback[1]();
 	}
+
+	/* Clear Pending Bit */
+	SET_BIT(EXTI->PR,EXTI_LINE_1);
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -531,6 +537,9 @@ void EXTI2_IRQHandler(void)
 		/* Invoke EXTI2 Callback Function */
 		Global_EXTI_Callback[2]();
 	}
+
+	/* Clear Pending Bit */
+	SET_BIT(EXTI->PR,EXTI_LINE_2);
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -546,6 +555,9 @@ void EXTI3_IRQHandler(void)
 		/* Invoke EXTI3 Callback Function */
 		Global_EXTI_Callback[3]();
 	}
+
+	/* Clear Pending Bit */
+	SET_BIT(EXTI->PR,EXTI_LINE_3);
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -561,6 +573,9 @@ void EXTI4_IRQHandler(void)
 		/* Invoke EXTI4 Callback Function */
 		Global_EXTI_Callback[4]();
 	}
+
+	/* Clear Pending Bit */
+	SET_BIT(EXTI->PR,EXTI_LINE_4);
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -583,6 +598,9 @@ void EXTI9_5_IRQHandler(void)
 			/* Invoke EXTI5 Callback Function */
 			Global_EXTI_Callback[5]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_5);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_6))
@@ -593,6 +611,9 @@ void EXTI9_5_IRQHandler(void)
 			/* Invoke EXTI6 Callback Function */
 			Global_EXTI_Callback[6]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_6);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_7))
@@ -603,6 +624,9 @@ void EXTI9_5_IRQHandler(void)
 			/* Invoke EXTI7 Callback Function */
 			Global_EXTI_Callback[7]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_7);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_8))
@@ -613,6 +637,9 @@ void EXTI9_5_IRQHandler(void)
 			/* Invoke EXTI8 Callback Function */
 			Global_EXTI_Callback[8]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_8);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_9))
@@ -623,6 +650,9 @@ void EXTI9_5_IRQHandler(void)
 			/* Invoke EXTI9 Callback Function */
 			Global_EXTI_Callback[9]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_9);
 	}
 }
 
@@ -646,6 +676,9 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI10 Callback Function */
 			Global_EXTI_Callback[10]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_10);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_11))
@@ -656,6 +689,9 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI11 Callback Function */
 			Global_EXTI_Callback[11]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_11);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_12))
@@ -666,6 +702,9 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI12 Callback Function */
 			Global_EXTI_Callback[12]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_12);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_13))
@@ -676,6 +715,9 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI13 Callback Function */
 			Global_EXTI_Callback[13]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_13);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_14))
@@ -686,6 +728,9 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI14 Callback Function */
 			Global_EXTI_Callback[14]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_14);
 	}
 
 	if(GET_BIT(EXTI->PR,EXTI_LINE_15))
@@ -696,5 +741,8 @@ void EXTI15_10_IRQHandler(void)
 			/* Invoke EXTI15 Callback Function */
 			Global_EXTI_Callback[15]();
 		}
+
+		/* Clear Pending Bit */
+		SET_BIT(EXTI->PR,EXTI_LINE_15);
 	}
 }
