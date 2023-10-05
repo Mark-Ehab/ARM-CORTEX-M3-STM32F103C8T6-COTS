@@ -40,7 +40,7 @@
 #define EXTI_LINE_10                      10U
 #define EXTI_LINE_11                      11U
 #define EXTI_LINE_12                      12U
-#define EXTI_LINE_12                      12U
+#define EXTI_LINE_13                      13U
 #define EXTI_LINE_14                      14U
 #define EXTI_LINE_15                      15U
 
