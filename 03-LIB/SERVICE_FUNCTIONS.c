@@ -148,3 +148,27 @@ uint32_t SERV_Pow(uint32_t Copy_Base , uint32_t Copy_Power)
 
 	return Local_Result;
 }
+
+/*--------------------------------------------------------------------------------*/
+/* @Function Name 	: Pow											        	  */
+/*--------------------------------------------------------------------------------*/
+/* @Param(in) 		: uint32_t Copy_Time										  */
+/*--------------------------------------------------------------------------------*/
+/* @Param(inout)	: None														  */
+/*--------------------------------------------------------------------------------*/
+/* @Param(out)		: None														  */
+/*--------------------------------------------------------------------------------*/
+/* @Return          : uint32_t  	        	      		        			  */
+/*--------------------------------------------------------------------------------*/
+/* @Description     : Function to block the processor for specified delay in ms	  */
+/*--------------------------------------------------------------------------------*/
+uint32_t SERV_Delay_ms(uint32_t Copy_Time)
+{
+	uint32_t Local_Ticks = (500 * Copy_Time);
+	uint32_t Local_TicksCounter;
+
+	for(Local_TicksCounter = 0 ; Local_TicksCounter < Local_Ticks ;Local_TicksCounter++)
+	{
+		__asm("NOP");
+	}
+}
