@@ -466,15 +466,20 @@ void RCC_Init(void)
 		#endif
 
 }
+
 /*--------------------------------------------------------------------------------*/
 /* @Function Name: EnablePeripheralClk					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_BusId											  */
-/* 				   Ex:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
+/*                 Brief: Id of the bus to which the peripheral is connected      */
+/* 				   Range:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_PeripheralId				                      */
-/*				   Ex:(RCC_DMA1 ... RCC_SDIO)  (AHB)							  */
-/*				   Ex:(RCC_AFIO ... RCC_TIM11) (APB2)                             */
-/*				   Ex:(RCC_TIM2 ... RCC_DAC)   (APB2)                             */
+/*                 Brief: Id of the pehripheral for which system clock will be    */
+/*                        enabled.                                                */
+/*                 Range: - (RCC_DMA1 --> RCC_SDIO)  (AHB)						  */ 
+/*                        - (RCC_AFIO --> RCC_TIM11) (APB2)                       */
+/*                        - (RCC_TIM2 --> RCC_DAC)   (APB2)                       */  
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -523,15 +528,20 @@ ERROR_STATUS_t RCC_EnablePeripheralClk(uint8_t Copy_BusId , uint8_t Copy_Periphe
 
 	return Local_Status;
 }
+
 /*--------------------------------------------------------------------------------*/
 /* @Function Name: DisablePeripheralClk					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_BusId											  */
-/* 				   Ex:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
+/*                 Brief: Id of the bus to which the peripheral is connected      */
+/* 				   Range:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_PeripheralId				                      */
-/*				   Ex:(RCC_DMA1 ... RCC_SDIO)  (AHB)							  */
-/*				   Ex:(RCC_AFIO ... RCC_TIM11) (APB2)                             */
-/*				   Ex:(RCC_TIM2 ... RCC_DAC)   (APB2)                             */
+/*                 Brief: Id of the pehripheral for which system clock will be    */
+/*                        disabled.                                               */
+/*                 Range: - (RCC_DMA1 --> RCC_SDIO)  (AHB)						  */ 
+/*                        - (RCC_AFIO --> RCC_TIM11) (APB2)                       */  
+/*                        - (RCC_TIM2 --> RCC_DAC)   (APB2)                       */  
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
