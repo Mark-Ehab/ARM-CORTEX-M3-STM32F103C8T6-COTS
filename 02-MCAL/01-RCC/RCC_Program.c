@@ -210,7 +210,7 @@ void RCC_Init(void)
 		#if   RCC_PLL_CLK_ENTRY == PLL_HSI_DIV_BY_2
 
 			/* Set HSI/2 as PLL Clock Source */
-			CLR_BIT(RCC->CFGR,CFGR_PLLSRC);
+			CLEAR_BIT(RCC->CFGR,CFGR_PLLSRC);
 
 		#elif RCC_PLL_CLK_ENTRY == PLL_HSE
 
@@ -221,7 +221,7 @@ void RCC_Init(void)
 			#if   RCC_PLL_HSE_DIV_FACTOR == PLL_DIV_FACTOR_HSE
 
 				/* Set HSE Clock not Divided */
-				CLR_BIT(RCC->CFGR,CFGR_PLLXTPRE);
+				CLEAR_BIT(RCC->CFGR,CFGR_PLLXTPRE);
 
 			#elif RCC_PLL_HSE_DIV_FACTOR == PLL_DIV_FACTOR_HSE_DIV_BY_2
 
@@ -374,7 +374,7 @@ void RCC_Init(void)
 		#elif RCC_HSE_CLK == HSE_CRYSTAL || RCC_HSE_CLK == HSE_CERAMIC
 
 			/* Clear HSEBYP to not bypass external 4-16 MHz oscillator */
-			CLR_BIT(RCC->CR,CR_HSEBYP);
+			CLEAR_BIT(RCC->CR,CR_HSEBYP);
 
 		#else
 
@@ -556,19 +556,19 @@ ERROR_STATUS_t RCC_DisablePeripheralClk(uint8_t Copy_BusId , uint8_t Copy_Periph
 			case RCC_AHB :
 
 				/* Disables the clock source for a peripheral connected to AHB BUS */
-				CLR_BIT(RCC->AHBENR,Copy_PeripheralId);
+				CLEAR_BIT(RCC->AHBENR,Copy_PeripheralId);
 				break;
 
 			case RCC_APB1:
 
 				/* Disables the clock source for a peripheral connected to APB1 BUS */
-				CLR_BIT(RCC->APB1ENR,Copy_PeripheralId);
+				CLEAR_BIT(RCC->APB1ENR,Copy_PeripheralId);
 				break;
 
 			case RCC_APB2:
 
 				/* Disables the clock source for a peripheral connected to APB2 BUS */
-				CLR_BIT(RCC->APB2ENR,Copy_PeripheralId);
+				CLEAR_BIT(RCC->APB2ENR,Copy_PeripheralId);
 				break;
 		}
 	}
