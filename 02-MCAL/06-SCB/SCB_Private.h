@@ -64,4 +64,10 @@ typedef struct
 /* Define Interrupt Priority Group Mask */
 #define SCB_INTERRUPT_PRIGROUP_MASK		 0xFFFFF8FFU
 
+/* Define Register Key for Application Interrupt and Reset Control Register */
+#define SCB_VECTKEY						 0x05FA0000U
+
+/* Define Register Key Mask for Application Interrupt and Reset Control Register */
+#define SCB_VECTKEY_MASK				 0x0000FFFFU
+
 #endif /* SCB_MCAL_PRIVATE_H_ */
