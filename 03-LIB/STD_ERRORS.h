@@ -29,8 +29,9 @@
  {
 	RT_OK  	        = 0,
 	RT_NOK 	        = 1,
-	NULL_POINTER	= 2,
-	BUSY_FUNC		= 3
+	OUT_OF_RANGE    = 2,
+	NULL_POINTER	= 3,
+	BUSY_FUNC       = 4
  }ERROR_STATUS_t;
 
 #endif /* LIB_STD_ERRORS_H_ */
