@@ -475,7 +475,7 @@ void RCC_Init(void)
 /* 				   Range:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
 /*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_PeripheralId				                      */
-/*                 Brief: Id of the pehripheral for which system clock will be    */
+/*                 Brief: Id of the peripheral for which system clock will be     */
 /*                        enabled.                                                */
 /*                 Range: - (RCC_DMA1 --> RCC_SDIO)  (AHB)						  */ 
 /*                        - (RCC_AFIO --> RCC_TIM11) (APB2)                       */
@@ -537,7 +537,7 @@ ERROR_STATUS_t RCC_EnablePeripheralClk(uint8_t Copy_BusId , uint8_t Copy_Periphe
 /* 				   Range:(RCC_AHB, RCC_APB1, RCC_APB2) 					          */
 /*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_PeripheralId				                      */
-/*                 Brief: Id of the pehripheral for which system clock will be    */
+/*                 Brief: Id of the peripheral for which system clock will be     */
 /*                        disabled.                                               */
 /*                 Range: - (RCC_DMA1 --> RCC_SDIO)  (AHB)						  */ 
 /*                        - (RCC_AFIO --> RCC_TIM11) (APB2)                       */  
