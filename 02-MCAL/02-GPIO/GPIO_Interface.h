@@ -167,25 +167,30 @@ void GPIO_Init(void);
 /* @Function Name: SetPinMode          					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port				                              */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id at which pin mode will be configured       */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_Pin												  */
-/*				   Ex:(GPIO_PIN_0 ... GPIO_PIN_15)								  */
+/*				   Brief: Pin Id for which mode will be configured                */
+/*                 Range:(GPIO_PIN_0 --> GPIO_PIN_15)							  */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_Mode                                              */
-/*				   Ex: GPIO_PIN_INPUT_ANALOG                                      */
-/*					   GPIO_PIN_INPUT_FLOATING                                    */
-/*					   GPIO_PIN_INPUT_PULLUP_PULLDOWN                             */
-/*					   GPIO_PIN_OUTPUT_SPEED_10MHZ_PUSHPULL                       */
-/*				       GPIO_PIN_OUTPUT_SPEED_10MHZ_OPENDRAIN                      */
-/*				       GPIO_PIN_OUTPUT_SPEED_10MHZ_AF_PUSHPULL                    */
-/*				       GPIO_PIN_OUTPUT_SPEED_10MHZ_AF_OPENDRAIN                   */
-/*					   GPIO_PIN_OUTPUT_SPEED_2MHZ_PUSHPULL                        */
-/*				       GPIO_PIN_OUTPUT_SPEED_2MHZ_OPENDRAIN                       */
-/*				       GPIO_PIN_OUTPUT_SPEED_2MHZ_AF_PUSHPULL                     */
-/*				       GPIO_PIN_OUTPUT_SPEED_2MHZ_AF_OPENDRAIN                    */
-/*					   GPIO_PIN_OUTPUT_SPEED_50MHZ_PUSHPULL                       */
-/*				       GPIO_PIN_OUTPUT_SPEED_50MHZ_OPENDRAIN                      */
-/*				       GPIO_PIN_OUTPUT_SPEED_50MHZ_AF_PUSHPULL                    */
-/*				       GPIO_PIN_OUTPUT_SPEED_50MHZ_AF_OPENDRAIN                   */
+/*                 Brief: I/O Pin mode                                            */
+/*				   Range: GPIO_PIN_INPUT_ANALOG                                   */
+/*					      GPIO_PIN_INPUT_FLOATING                                 */
+/*					      GPIO_PIN_INPUT_PULLUP_PULLDOWN                          */
+/*					      GPIO_PIN_OUTPUT_SPEED_10MHZ_PUSHPULL                    */
+/*				          GPIO_PIN_OUTPUT_SPEED_10MHZ_OPENDRAIN                   */
+/*				          GPIO_PIN_OUTPUT_SPEED_10MHZ_AF_PUSHPULL                 */
+/*				          GPIO_PIN_OUTPUT_SPEED_10MHZ_AF_OPENDRAIN                */
+/*					      GPIO_PIN_OUTPUT_SPEED_2MHZ_PUSHPULL                     */
+/*				          GPIO_PIN_OUTPUT_SPEED_2MHZ_OPENDRAIN                    */
+/*				          GPIO_PIN_OUTPUT_SPEED_2MHZ_AF_PUSHPULL                  */
+/*				          GPIO_PIN_OUTPUT_SPEED_2MHZ_AF_OPENDRAIN                 */
+/*					      GPIO_PIN_OUTPUT_SPEED_50MHZ_PUSHPULL                    */
+/*				          GPIO_PIN_OUTPUT_SPEED_50MHZ_OPENDRAIN                   */
+/*				          GPIO_PIN_OUTPUT_SPEED_50MHZ_AF_PUSHPULL                 */
+/*				          GPIO_PIN_OUTPUT_SPEED_50MHZ_AF_OPENDRAIN                */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -201,16 +206,21 @@ ERROR_STATUS_t GPIO_SetPinMode(uint8_t Copy_Port , uint8_t Copy_Pin , uint8_t Co
 /* @Function Name: SetPinVal         					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id at which pin value will be set             */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_Pin												  */
-/*				   Ex:(GPIO_PIN_0 ... GPIO_PIN_15)								  */
+/*                 Brief: Pin Id for which value will be set                      */
+/*                 Range:(GPIO_PIN_0 --> GPIO_PIN_15)							  */
+/*                 -------------------------------------------------------------- */
 /* 				   uint8_t Copy_Value                                             */
-/*                 Ex: GPIO_PIN_HIGH                                              */
-/*                     GPIO_PIN_LOW                                               */
-/*                     GPIO_PIN_OD_HIGH                                           */
-/*                     GPIO_PIN_OD_LOW                                            */
-/*                     GPIO_PIN_PULLUP                                            */
-/*                     GPIO_PIN_PULLDOWN                                          */
+/*                 Brief: I/O Pin possible value                                  */
+/*                 Range: GPIO_PIN_HIGH                                           */
+/*                        GPIO_PIN_LOW                                            */
+/*                        GPIO_PIN_OD_HIGH                                        */
+/*                        GPIO_PIN_OD_LOW                                         */
+/*                        GPIO_PIN_PULLUP                                         */
+/*                        GPIO_PIN_PULLDOWN                                       */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -226,15 +236,18 @@ ERROR_STATUS_t GPIO_SetPinVal(uint8_t Copy_Port , uint8_t Copy_Pin , uint8_t Cop
 /* @Function Name: GetPinVal         					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id at which pin value will be read            */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_Pin												  */
-/*				   Ex:(GPIO_PIN_0 ... GPIO_PIN_15)								  */
+/*                 Brief: Pin Id for which value will be read                     */
+/*                 Range:(GPIO_PIN_0 --> GPIO_PIN_15)							  */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(out)	 : uint8_t* Copy_pValue                                           */
-/*				   Ex: GPIO_PIN_HIGH											  */
-/*					   GPIO_PIN_LOW	 											  */
+/*                 Brief: Pointer to variable that will hold value read from pin  */
+/*				   Range: None      											  */
 /*--------------------------------------------------------------------------------*/
 /* @Return		 : ERROR_STATUS_t												  */
 /*--------------------------------------------------------------------------------*/
@@ -246,9 +259,12 @@ ERROR_STATUS_t GPIO_GetPinVal(uint8_t Copy_Port , uint8_t Copy_Pin , uint8_t* Co
 /* @Function Name: TogglePinVal         			                              */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id at which pin value will be toggled         */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /*				   uint8_t Copy_Pin												  */
-/*				   Ex:(GPIO_PIN_0 ... GPIO_PIN_15)								  */
+/*                 Brief: Pin Id for which value will be toggled                  */
+/*				   Range:(GPIO_PIN_0 --> GPIO_PIN_15)						      */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -256,7 +272,7 @@ ERROR_STATUS_t GPIO_GetPinVal(uint8_t Copy_Port , uint8_t Copy_Pin , uint8_t* Co
 /*--------------------------------------------------------------------------------*/
 /* @Return		 : ERROR_STATUS_t												  */
 /*--------------------------------------------------------------------------------*/
-/* @Description	 : toggles the value on GPIO pin						          */
+/* @Description	 : Toggles the value on GPIO pin						          */
 /*--------------------------------------------------------------------------------*/
 ERROR_STATUS_t GPIO_TogglePinVal(uint8_t Copy_Port , uint8_t Copy_Pin);
 
@@ -267,8 +283,12 @@ ERROR_STATUS_t GPIO_TogglePinVal(uint8_t Copy_Port , uint8_t Copy_Pin);
 /* @Function Name: SetPortMode          			                              */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id for which mode will be configured          */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /* 				   uint32_t Copy_Mode				                              */
+/*                 Brief: Mode value that will be set for selected GPIO port      */
+/*				   Range: -                             		                  */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -284,8 +304,12 @@ ERROR_STATUS_t GPIO_SetPortMode(uint8_t Copy_Port , uint32_t Copy_Mode);
 /* @Function Name: SetPortVal         					                          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id for which value will be set                */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
+/*                 -------------------------------------------------------------- */
 /* 				   uint16_t Copy_Value				                              */
+/*                 Brief: Value that will be set for selected GPIO port           */
+/*				   Range: -                             		                  */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
@@ -301,11 +325,14 @@ ERROR_STATUS_t GPIO_SetPortVal(uint8_t Copy_Port , uint16_t Copy_Value);
 /* @Function Name: GetPortVal	        					                      */
 /*--------------------------------------------------------------------------------*/
 /* @Param(in)	 : uint8_t Copy_Port											  */
-/*				   Ex:(GPIO_PORT_A, GPIO_PORT_B, GPIO_PORT_C)					  */
+/*                 Brief: GPIO port Id for which value will be read               */
+/*				   Range:(GPIO_PORT_A --> GPIO_PORT_C)			                  */
 /*--------------------------------------------------------------------------------*/
 /* @Param(inout) : None                                                	          */
 /*--------------------------------------------------------------------------------*/
 /* @Param(out)	 : uint16_t* Copy_pValue                                          */
+/*                 Brief: Pointer to variable that will hold value read from port */
+/*				   Range: -                         			                  */
 /*--------------------------------------------------------------------------------*/
 /* @Return		 : ERROR_STATUS_t												  */
 /*--------------------------------------------------------------------------------*/
