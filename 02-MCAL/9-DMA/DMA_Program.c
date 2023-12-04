@@ -36,9 +36,9 @@
 /*                            GLOBAL VARIABLES DEFINITIONS		                     */
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
-void(*DMA_TransferCompleteNotificationFunc[7])(void) = {NULL};		   /* Array of pointers to DMA seven channels transfer complete callback functions */
-void(*DMA_HalfTransferNotificationFunc[7])(void) = {NULL};               /* Array of pointers to DMA seven channels half transfer callback functions */
-void(*DMA_TransferErrorNotificationFunc[7])(void) = {NULL};              /* Array of pointers to DMA seven channels transfer error callback functions */
+static void(*DMA_TransferCompleteNotificationFunc[7])(void) = {NULL};		   /* Array of pointers to DMA seven channels transfer complete callback functions */
+static void(*DMA_HalfTransferNotificationFunc[7])(void) = {NULL};               /* Array of pointers to DMA seven channels half transfer callback functions */
+static void(*DMA_TransferErrorNotificationFunc[7])(void) = {NULL};              /* Array of pointers to DMA seven channels transfer error callback functions */
 
 /*-----------------------------------------------------------------------------------*/
 /*                                                                                   */

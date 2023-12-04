@@ -38,8 +38,8 @@
 /*                                                                                   */
 /*-----------------------------------------------------------------------------------*/
 
-uint8_t Global_IntervalMode;						/* Global variable that holds interval mode whether it's single or periodic */
-void(*Global_CallbackFunction)(void) = NULL;		/* Global variable that holds pointer to function to be called once STK event is triggered */
+static uint8_t Global_IntervalMode;						/* Global variable that holds interval mode whether it's single or periodic */
+static void(*Global_CallbackFunction)(void) = NULL;		/* Global variable that holds pointer to function to be called once STK event is triggered */
 
 /*-----------------------------------------------------------------------------------*/
 /*                                                                                   */
